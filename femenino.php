@@ -6,11 +6,11 @@ if(!isset($_SESSION['username']) || $_SESSION['username'] !== 'Admin') {
     exit();
 }
 
-// Contador de visitas
-$counter_file = "contadores/femenino_counter.txt";
-$counter = (file_exists($counter_file)) ? intval(file_get_contents($counter_file)) : 0;
+// Contador de visitas basado en una cookie
+$counter_cookie_name = 'femenino_contador';
+$counter = isset($_COOKIE[$counter_cookie_name]) ? intval($_COOKIE[$counter_cookie_name]) : 0;
 $counter++;
-file_put_contents($counter_file, $counter);
+setcookie($counter_cookie_name, $counter, time() + (86400 * 365), "/"); // Cookie válida por 1 año
 ?>
 
 <!DOCTYPE html>
