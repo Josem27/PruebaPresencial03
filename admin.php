@@ -57,11 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['genero'])) {
                     <input type="radio" id="femenino" name="genero" value="femenino" <?php if($genero === 'femenino') echo 'checked'; ?>>
                     <label class="form-check-label" for="femenino">Femenino</label>
                 </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Entrar</button>
+            </form>
+            <form action="logout.php" method="post">
                 <div class="btn-group">
-                    <button type="submit" class="btn btn-primary">Entrar</button>
-                    <form action="logout.php" method="post">
-                        <button type="submit" class="btn btn-danger">Cerrar sesión</button>
-                    </form>
+                    <button type="submit" class="btn btn-danger">Cerrar sesión</button>
                 </div>
             </form>
         </div>
