@@ -18,18 +18,41 @@ file_put_contents($counter_file, $counter);
 <head>
     <meta charset="UTF-8">
     <title>Información para hombre</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos adicionales -->
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .center-box {
+            margin: 0 auto;
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2>Información para hombre</h2>
-        <p>#Visitas: <?php echo $counter; ?></p>
-        <form action="admin.php" method="post">
-            <button type="submit" class="btn btn-primary">Cambiar de sexo</button>
-        </form>
-        <!-- Botón para cerrar sesión -->
-        <form action="logout.php" method="post">
-            <button type="submit" class="btn btn-danger">Cerrar sesión</button>
-        </form>
+        <div class="center-box">
+            <h2 class="text-center">Información para hombre</h2>
+            <p class="text-center">#Visitas: <?php echo $counter; ?></p>
+            <div class="btn-group">
+                <form action="admin.php" method="post">
+                    <button type="submit" class="btn btn-primary">Cambiar de sexo</button>
+                </form>
+                <form action="logout.php" method="post">
+                    <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>

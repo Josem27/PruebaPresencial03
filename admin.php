@@ -22,21 +22,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['genero'])) {
 <head>
     <meta charset="UTF-8">
     <title>Panel de Administrador</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos adicionales -->
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .center-box {
+            margin: 0 auto;
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2>Bienvenido, <?php echo $_SESSION['username']; ?>!</h2>
-        <form method="post">
-            <h3>Selecciona tu género:</h3>
-            <input type="radio" id="masculino" name="genero" value="masculino" <?php if($genero === 'masculino') echo 'checked'; ?>>
-            <label for="masculino">Masculino</label><br>
-            <input type="radio" id="femenino" name="genero" value="femenino" <?php if($genero === 'femenino') echo 'checked'; ?>>
-            <label for="femenino">Femenino</label><br>
-            <button type="submit" class="btn btn-primary">Entrar</button>
-        </form>
-        <form action="logout.php" method="post">
-            <button type="submit" class="btn btn-danger">Cerrar sesión</button>
-        </form>
+        <div class="center-box">
+            <h2 class="text-center">Bienvenido, <?php echo $_SESSION['username']; ?></h2>
+            <form method="post">
+                <h3 class="text-center">Selecciona tu género:</h3>
+                <div class="form-check">
+                    <input type="radio" id="masculino" name="genero" value="masculino" <?php if($genero === 'masculino') echo 'checked'; ?>>
+                    <label class="form-check-label" for="masculino">Masculino</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="femenino" name="genero" value="femenino" <?php if($genero === 'femenino') echo 'checked'; ?>>
+                    <label class="form-check-label" for="femenino">Femenino</label>
+                </div>
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                    <form action="logout.php" method="post">
+                        <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+                    </form>
+                </div>
+            </form>
+        </div>
     </div>
 
     <?php
