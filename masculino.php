@@ -7,7 +7,7 @@ if(!isset($_SESSION['username']) || $_SESSION['username'] !== 'Admin') {
 }
 
 // Contador de visitas
-$counter_file = "masculino_counter.txt";
+$counter_file = "contadores/masculino_counter.txt";
 $counter = (file_exists($counter_file)) ? intval(file_get_contents($counter_file)) : 0;
 $counter++;
 file_put_contents($counter_file, $counter);
